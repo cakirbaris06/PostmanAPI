@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "d4cabb8c-e86a-4944-a17e-00be451c13ed",
+		"name": "SOC PORTAL Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.stage.cwatchapi.com/gateway/login?soc=true&cacheBuster=1568291478855",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a47159e6-2b13-42ee-b0d3-21a45b28b625",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"baris.cakir@nurd.com\",\"password\":\"Asd123!.\",\"rememberMe\":true}"
+				},
+				"url": {
+					"raw": "https://api.stage.cwatchapi.com/gateway/login?soc=true&cacheBuster=1568291478855",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"gateway",
+						"login"
+					],
+					"query": [
+						{
+							"key": "soc",
+							"value": "true"
+						},
+						{
+							"key": "cacheBuster",
+							"value": "1568291478855"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
