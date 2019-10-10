@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "1d980ddd-1887-4f1f-aeea-6b935964bd1e",
+		"name": "SOC PORTAL create user - delete user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login soc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "add35d82-fb14-4e24-827e-d14da70f2357",
+						"exec": [
+							"postman.setEnvironmentVariable(\"refresh_token\", postman.getResponseHeader(\"Authorization\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json;charset=UTF-8"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"baris.cakir@nurd.com\",\"password\":\"Asd123!.\",\"rememberMe\":true}"
+				},
+				"url": {
+					"raw": "https://api.stage.cwatchapi.com/gateway/login?soc=true&cacheBuster=1562740182210",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"gateway",
+						"login"
+					],
+					"query": [
+						{
+							"key": "soc",
+							"value": "true"
+						},
+						{
+							"key": "cacheBuster",
+							"value": "1562740182210"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cef71f5d-c2f5-4186-831d-ee9493730aa2",
+						"exec": [
+							"pm.test(\"Status code is 201 - SUCCESS\", function(){",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.2.316741792.1560433423; NG_TRANSLATE_LANG_KEY=%22en%22; _gid=GA1.2.1991538414.1562855924"
+					},
+					{
+						"key": "origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "accept-language",
+						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "authority",
+						"value": "sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\":null,\"uid\":null,\"login\":null,\"firstName\":\"test_postman\",\"lastName\":\"test\",\"email\":\"baris.cakir@yopmail.com\",\"activated\":true,\"langKey\":null,\"createdBy\":null,\"createdDate\":null,\"lastModifiedBy\":null,\"lastModifiedDate\":null,\"resetDate\":null,\"resetKey\":null,\"authorities\":null,\"l1\":true,\"l2\":true,\"admin\":true}"
+				},
+				"url": {
+					"raw": "https://sensor.stage.cwatchapi.com/api/users?cacheBuster=1562936911120",
+					"protocol": "https",
+					"host": [
+						"sensor",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1562936911120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "created user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d75ace74-d752-4d2b-9fb9-b5ea727b7a7d",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"    pm.environment.set(\"user_email\", data[0].login);",
+							"",
+							"pm.test(\"Email is true : SUCCESS\", function(){",
+							"    pm.expect(data[0].login).to.include(\"baris.cakir@yopmail.com\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "accept-language",
+						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "authority",
+						"value": "sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.2.316741792.1560433423; NG_TRANSLATE_LANG_KEY=%22en%22; _gid=GA1.2.1991538414.1562855924"
+					}
+				],
+				"url": {
+					"raw": "https://sensor.stage.cwatchapi.com/api/users?cacheBuster=1562937384780&keyword=&page=0&size=10&sort=createdDate,desc",
+					"protocol": "https",
+					"host": [
+						"sensor",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1562937384780"
+						},
+						{
+							"key": "keyword",
+							"value": ""
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "createdDate,desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user (uid) to be deleted ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b8e43d0-259c-4346-bb7d-31075840c395",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"    pm.environment.set(\"user_uid\", data.uid);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "accept-language",
+						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "authority",
+						"value": "sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.2.316741792.1560433423; NG_TRANSLATE_LANG_KEY=%22en%22; _gid=GA1.2.1991538414.1562855924"
+					}
+				],
+				"url": {
+					"raw": "https://sensor.stage.cwatchapi.com/api/users/baris.cakir@yopmail.com?cacheBuster=1562940355777",
+					"protocol": "https",
+					"host": [
+						"sensor",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"baris.cakir@yopmail.com"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1562940355777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "accept-language",
+						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "authority",
+						"value": "sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.2.316741792.1560433423; NG_TRANSLATE_LANG_KEY=%22en%22; _gid=GA1.2.1991538414.1562855924"
+					}
+				],
+				"url": {
+					"raw": "https://sensor.stage.cwatchapi.com/api/users/{{user_uid}}?cacheBuster=1562937292200",
+					"protocol": "https",
+					"host": [
+						"sensor",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{user_uid}}"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1562937292200"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d5548f0b-254d-43d7-91cc-be1bc2b5d173",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "65bc400d-2195-4d7e-894f-dcee6ddd4fef",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response time is less than 2000ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"});"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
