@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "52e39236-6cdd-4152-84cd-6fb7df2ca3dc",
+		"name": "Manual_incident_create_delete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login SOC Portal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "add35d82-fb14-4e24-827e-d14da70f2357",
+						"exec": [
+							"postman.setEnvironmentVariable(\"refresh_token\", postman.getResponseHeader(\"Authorization\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"baris.cakir@nurd.com\",\"password\":\"Asd123!.\",\"rememberMe\":true}"
+				},
+				"url": {
+					"raw": "{{host}}/gateway/login?soc=true&cacheBuster=1562740182210",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"gateway",
+						"login"
+					],
+					"query": [
+						{
+							"key": "soc",
+							"value": "true"
+						},
+						{
+							"key": "cacheBuster",
+							"value": "1562740182210"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create manual incident (Incident)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2185b65a-e10d-413b-8fb4-42978b6c1123",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"    postman.setEnvironmentVariable(\"incident_id\", data.data.id);",
+							"",
+							"pm.test(\"Message test : Success\", function(){",
+							"    pm.expect(data.message).to.include(\"success\");",
+							"});",
+							"",
+							"pm.test(\"Description test : Success\", function(){",
+							"    pm.expect(data.data.description).to.include(\"postman test\"); ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"postman_test_{{$guid}}\",\"description\":\"postman test\",\"type\":\"DEFAULT\",\"status\":\"OPEN\",\"priority\":\"HIGH\",\"customerUid\":\"CUST978a012dc534435e80a73efeda943621\",\"assigneeUid\":\"49b3dce8-d7c7-4e7c-917b-56e2ce3fa048\",\"categoryUid\":\"9f833d91b35a4325a35b4d8596b68434\",\"object\":\"1.2.3.4\",\"subject\":\"1.2.3.5\",\"incidentArchiveParameters\":{},\"classification\":\"2\"}"
+				},
+				"url": {
+					"raw": "https://api.stage.cwatchapi.com/gateway/incidentmanagementservicenew/api/incident?cacheBuster=1570104380076",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stage",
+						"cwatchapi",
+						"com"
+					],
+					"path": [
+						"gateway",
+						"incidentmanagementservicenew",
+						"api",
+						"incident"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1570104380076"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incident detail (Incident)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/{{incident_id}}?cacheBuster=1570104604284",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"gateway",
+						"incidentmanagementservicenew",
+						"api",
+						"incident",
+						"{{incident_id}}"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1570104604284"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete incident (Inciedent)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1831e00-e928-455b-b6be-514e9aa2b87a",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"",
+							"pm.test(\"Incident data : Null\", function(){",
+							"    pm.expect(data.data).to.equal(null);",
+							"});",
+							"",
+							"pm.test(\"Incident detail error: Null\", function(){",
+							"    pm.expect(data.errors).to.equal(null);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"{{incident_id}}\"]"
+				},
+				"url": {
+					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/delete-by-ids?cacheBuster=1570104879552",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"gateway",
+						"incidentmanagementservicenew",
+						"api",
+						"incident",
+						"delete-by-ids"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1570104879552"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incident detail delete (Incident)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://sensor.stage.cwatchapi.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://sensor.stage.cwatchapi.com"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{refresh_token}}"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/{{incident_id}}?cacheBuster=1570104604284",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"gateway",
+						"incidentmanagementservicenew",
+						"api",
+						"incident",
+						"{{incident_id}}"
+					],
+					"query": [
+						{
+							"key": "cacheBuster",
+							"value": "1570104604284"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8a78b926-b4bb-4b43-b952-298ce6c0013c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "76ac09c7-65d2-4e9d-a672-63392b3b2815",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200 : Success\", function(){",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"",
+					"pm.test(\"Response time is less than 3000ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(3000);",
+					"});",
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
