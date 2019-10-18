@@ -1,2055 +1,1978 @@
 {
-	"info": {
-		"_postman_id": "97c1aee5-6d2a-4ed2-b8e7-62c51f6a420e",
-		"name": "All_Page_SOC_Portal",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "login SOC Portal Copy",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "add35d82-fb14-4e24-827e-d14da70f2357",
-						"exec": [
-							"postman.setEnvironmentVariable(\"refresh_token\", postman.getResponseHeader(\"Authorization\"));",
-							"",
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "Origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"username\":\"baris.cakir@nurd.com\",\"password\":\"Asd123!.\",\"rememberMe\":true}"
-				},
-				"url": {
-					"raw": "{{host}}/gateway/login?soc=true&cacheBuster=1562740182210",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"gateway",
-						"login"
-					],
-					"query": [
-						{
-							"key": "soc",
-							"value": "true"
-						},
-						{
-							"key": "cacheBuster",
-							"value": "1562740182210"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "all Mssp information (Incident)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "34d12ca5-c902-4e85-92c7-b1c169eb605d",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json;charset=UTF-8",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://sensor.stage.cwatchapi.com/api/all-mssp-information?cacheBuster=1570112467904",
-					"protocol": "https",
-					"host": [
-						"sensor",
-						"stage",
-						"cwatchapi",
-						"com"
-					],
-					"path": [
-						"api",
-						"all-mssp-information"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570112467904"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "incident classification (Incident)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "e2d4a713-893c-4681-a628-baae4345356f",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "Origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "Authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "Sec-Fetch-Mode",
-						"value": "cors"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident-classification/list?cacheBuster=1570103465771",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"gateway",
-						"incidentmanagementservicenew",
-						"api",
-						"incident-classification",
-						"list"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570103465771"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "incident stats (Incident)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b9c44fc8-214a-41f4-84da-ba3d0569bf8a",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "Origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "Authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "Sec-Fetch-Mode",
-						"value": "cors"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"queryMap\":{\"onlyAssigned\":{\"searchValue\":true,\"searchOperator\":\"EQUALS\"},\"generalStatus\":{\"searchValue\":\"OPEN\",\"searchOperator\":\"EQUALS\"}},\"isAscending\":false,\"groupBy\":[\"status\"],\"aggregationType\":\"COUNT\"}"
-				},
-				"url": {
-					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/stats?cacheBuster=1570103466043",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"gateway",
-						"incidentmanagementservicenew",
-						"api",
-						"incident",
-						"stats"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570103466043"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "incident filter (Incident)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "0549ec19-57ed-40ad-b588-89af09123be3",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "Origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "Authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "Sec-Fetch-Mode",
-						"value": "cors"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json;charset=UTF-8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"pageNumber\":1,\"sortBy\":[\"creationTime\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{\"onlyAssigned\":{\"searchValue\":true,\"searchOperator\":\"EQUALS\"},\"generalStatus\":{\"searchValue\":\"OPEN\",\"searchOperator\":\"EQUALS\"}}}"
-				},
-				"url": {
-					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/filter?cacheBuster=1570103466043",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"gateway",
-						"incidentmanagementservicenew",
-						"api",
-						"incident",
-						"filter"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570103466043"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ticket management (Ticket)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "a2a8a2cc-a8e0-4fd7-b48a-fd510bd8c451",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Ticket data is not null : Success\", function(){",
-							"        pm.expect(data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "content-type",
-						"value": "application/json;charset=UTF-8"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"pageNumber\":1,\"sortBy\":[\"createdAt\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{}}"
-				},
-				"url": {
-					"raw": "{{sensor_stage}}/api/ticket-management?cacheBuster=1570175262572",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"ticket-management"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175262572"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ticket page search (Ticket)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "bc157b0a-e489-42cc-a9aa-0f6624e0d076",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"    pm.test(\"Ticket page search : Success\", function(){",
-							"        pm.expect(data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "content-type",
-						"value": "application/json;charset=UTF-8"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"pageNumber\":2,\"sortBy\":[\"createdAt\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{\"customer.mssp.msspId\":{\"searchValue\":\"cwatchankara_cone\",\"searchOperator\":\"EQUALS\"}}}"
-				},
-				"url": {
-					"raw": "{{sensor_stage}}/api/ticket-management?cacheBuster=1570175649551",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"ticket-management"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175649551"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "event field (Correlation Rules)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "1a58467e-f301-442b-8467-a884275b5760",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Event field is not null : Success\", function(){",
-							"        pm.expect(data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/eventfields?cacheBuster=1570175862549",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"eventfields"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175862549"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "generic list (Correlation Rules)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "a2ddca7f-ca8e-4814-b705-f22486adff41",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Generic List is not null : Success\", function(){",
-							"        pm.expect(data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/generic-list?size=1000&cacheBuster=1570175862549",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"generic-list"
-					],
-					"query": [
-						{
-							"key": "size",
-							"value": "1000"
-						},
-						{
-							"key": "cacheBuster",
-							"value": "1570175862549"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "threat classification (Correlation Rules)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "3e026ae2-b69b-404e-bada-5c1693e65c90",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/threat-classification/all?cacheBuster=1570175862549",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"threat-classification",
-						"all"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175862549"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "global correlation rule (Correlation Rule)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "2a42a7e3-55f1-49bd-80c2-c5fced16b1e0",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/global-correlation-rule-trees?cacheBuster=1570175862613",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"global-correlation-rule-trees"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175862613"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "cpm field (Correlation Rule)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4fe6cc87-506a-4248-ae80-64d8d4a77b8f",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"CPM Field is message : Success\", function(){",
-							"        pm.expect(data.message).to.equal(\"success\");",
-							"    });",
-							"    ",
-							"    pm.test(\"Cpm field is not null : Success\", function(){",
-							"        pm.expect(data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/cpm-fields?cacheBuster=1570175863884",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"cpm-fields"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570175863884"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "generic list (Generic List)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d7e1bf7e-dd79-4a97-8ea1-46ca551a1a57",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"    pm.test(\"Data message : Success\", function(){",
-							"        pm.expect(data.message).to.equal(\"success\");",
-							"    });",
-							"    ",
-							"    pm.test(\"Generic list data is not null : Success\", function(){",
-							"        pm.expect(data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/generic-list?cacheBuster=1570188807772&page=0&size=10&sort=id,asc",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"generic-list"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570188807772"
-						},
-						{
-							"key": "page",
-							"value": "0"
-						},
-						{
-							"key": "size",
-							"value": "10"
-						},
-						{
-							"key": "sort",
-							"value": "id,asc"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "generic list content (Generic List)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "f3a53d24-0e17-4050-8571-876fd1997637",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"    pm.test(\"Data message : Success\", function(){",
-							"        pm.expect(data.message).to.equal(\"success\");",
-							"    });",
-							"    ",
-							"    pm.test(\"Generic list content is search : Success\", function(){",
-							"        pm.expect(data.data.data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "content-type",
-						"value": "application/json;charset=UTF-8"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"pageNumber\":1,\"itemPerPage\":50,\"isAscending\":true,\"queryMap\":{},\"sortBy\":[\"id\"]}"
-				},
-				"url": {
-					"raw": "{{sensor_stage}}/api/generic-list/content/search?cacheBuster=1570189101843",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"generic-list",
-						"content",
-						"search"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570189101843"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "managed reports (Reporting)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "c28d13d5-9446-4ff3-b321-95bc87aa5bca",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"    pm.test(\"Data message : Success\", function(){",
-							"        pm.expect(data.message).to.equal(\"success\");",
-							"    });",
-							"    ",
-							"    pm.test(\"Reporting list data is not null : Success\", function(){",
-							"        pm.expect(data.data.links).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "content-type",
-						"value": "application/json;charset=UTF-8"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"sortBy\":[\"reportedAt\"],\"isAscending\":false,\"queryMap\":{\"customer.mssp.msspId\":{\"searchValue\":\"cwatchankara_cone\",\"searchOperator\":\"EQUALS\"}}}"
-				},
-				"url": {
-					"raw": "{{sensor_stage}}/api/managed-reports?cacheBuster=1570189414910",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"managed-reports"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570189414910"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "reports (Report Generation)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "bfae9fc6-19fa-4591-ae86-74609bbbd8bd",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"    pm.test(\"Report Generation data : Success\", function(){",
-							"        pm.expect(data.children).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/report-template-trees?cacheBuster=1570189527315",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"report-template-trees"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570189527315"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "event query list (Event Query)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "fe564590-e9f1-4772-af17-78d5eb85704c",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"",
-							"        pm.test(\"Event Query is not null : Success\", function(){",
-							"        pm.expect(data.children).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/event-query-trees/CUST4a7b9f0d3433407c9e0ae9e8d04444aa?cacheBuster=1570190201181",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"event-query-trees",
-						"CUST4a7b9f0d3433407c9e0ae9e8d04444aa"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570190201181"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "sensor list (Sensors)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "09552de2-3274-41be-b891-790f87c0816d",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Sensor list : Success\", function(){",
-							"        pm.expect(data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/sensors?cacheBuster=1570190465483&page=0&size=10&sort=id,asc",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"sensors"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570190465483"
-						},
-						{
-							"key": "page",
-							"value": "0"
-						},
-						{
-							"key": "size",
-							"value": "10"
-						},
-						{
-							"key": "sort",
-							"value": "id,asc"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "user management list (User Management)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "c50bf997-63ec-4b95-87b6-c4f4f1aeff4c",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "https://sensor.stage.cwatchapi.com/api/users?cacheBuster=1570190614214&keyword=&page=0&size=10&sort=id,asc",
-					"protocol": "https",
-					"host": [
-						"sensor",
-						"stage",
-						"cwatchapi",
-						"com"
-					],
-					"path": [
-						"api",
-						"users"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570190614214"
-						},
-						{
-							"key": "keyword",
-							"value": ""
-						},
-						{
-							"key": "page",
-							"value": "0"
-						},
-						{
-							"key": "size",
-							"value": "10"
-						},
-						{
-							"key": "sort",
-							"value": "id,asc"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "roles (Role Management)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d04d2260-5937-43da-bc62-aadd3f3dea3f",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Role Managemnet list : Success\", function(){",
-							"        pm.expect(data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}api/role-management/roles?cacheBuster=1570190701978",
-					"host": [
-						"{{sensor_stage}}api"
-					],
-					"path": [
-						"role-management",
-						"roles"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570190701978"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "role permissions (Role Management)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "fb9153cb-7bf5-436e-a95e-d7e444c26590",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Role Permission list : Success\", function(){",
-							"        pm.expect(data).to.not.equal(\"null\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/api/role-management/role-permissions/1?cacheBuster=1570190702237",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"api",
-						"role-management",
-						"role-permissions",
-						"1"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570190702237"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "metrics (Metrics)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "7e46d7a7-924f-4172-b335-4097d69820db",
-						"exec": [
-							"var data = JSON.parse(responseBody);",
-							"    ",
-							"    pm.test(\"Metric version : Success\", function(){",
-							"        pm.expect(data.version).to.equal(\"3.1.3\");",
-							"    });",
-							"    ",
-							"    setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/management/metrics",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"management",
-						"metrics"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "configuration (Configurations)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "b2524893-e4e3-4e05-b9ef-8d6c4a98da79",
-						"exec": [
-							"setTimeout(function(){}, [300]);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/management/configprops",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"management",
-						"configprops"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "audits (Audits)",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "accept-encoding",
-						"value": "gzip, deflate, br"
-					},
-					{
-						"key": "accept-language",
-						"value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
-					},
-					{
-						"key": "user-agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "sec-fetch-mode",
-						"value": "cors"
-					},
-					{
-						"key": "accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "authority",
-						"value": "sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "cookie",
-						"value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
-					},
-					{
-						"key": "sec-fetch-site",
-						"value": "same-origin"
-					}
-				],
-				"url": {
-					"raw": "{{sensor_stage}}/management/audits?fromDate=2019-09-04&page=0&size=20&toDate=2019-10-05",
-					"host": [
-						"{{sensor_stage}}"
-					],
-					"path": [
-						"management",
-						"audits"
-					],
-					"query": [
-						{
-							"key": "fromDate",
-							"value": "2019-09-04"
-						},
-						{
-							"key": "page",
-							"value": "0"
-						},
-						{
-							"key": "size",
-							"value": "20"
-						},
-						{
-							"key": "toDate",
-							"value": "2019-10-05"
-						}
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "5a53834d-cb39-4e6d-af2b-0898546f3898",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"id": "485e6fb3-b599-4adf-a08e-dc3c3c06f237",
-				"type": "text/javascript",
-				"exec": [
-					"pm.test(\"Status code is 200\", function () {",
-					"    pm.response.to.have.status(200);",
-					"});",
-					"pm.test(\"Response time is less than 3000ms\", function () {",
-					"    pm.expect(pm.response.responseTime).to.be.below(3000);",
-					"});"
-				]
-			}
-		}
-	],
-	"protocolProfileBehavior": {}
+  "info": {
+    "_postman_id": "97c1aee5-6d2a-4ed2-b8e7-62c51f6a420e",
+    "name": "All_Page_SOC_Portal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "login SOC Portal Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "add35d82-fb14-4e24-827e-d14da70f2357",
+            "exec": [
+              "postman.setEnvironmentVariable(\"refresh_token\", postman.getResponseHeader(\"Authorization\"));",
+              "",
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "Origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.90 Safari/537.36"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"baris.cakir@nurd.com\",\"password\":\"Asd123!.\",\"rememberMe\":true}"
+        },
+        "url": {
+          "raw": "{{host}}/gateway/login?soc=true&cacheBuster=1562740182210",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "gateway",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "soc",
+              "value": "true"
+            },
+            {
+              "key": "cacheBuster",
+              "value": "1562740182210"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "all Mssp information (Incident)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "34d12ca5-c902-4e85-92c7-b1c169eb605d",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json;charset=UTF-8",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://sensor.stage.cwatchapi.com/api/all-mssp-information?cacheBuster=1570112467904",
+          "protocol": "https",
+          "host": [
+            "sensor",
+            "stage",
+            "cwatchapi",
+            "com"
+          ],
+          "path": [
+            "api",
+            "all-mssp-information"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570112467904"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "incident classification (Incident)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "e2d4a713-893c-4681-a628-baae4345356f",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "Origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "Sec-Fetch-Mode",
+            "value": "cors"
+          }
+        ],
+        "url": {
+          "raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident-classification/list?cacheBuster=1570103465771",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "gateway",
+            "incidentmanagementservicenew",
+            "api",
+            "incident-classification",
+            "list"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570103465771"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "incident stats (Incident)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "b9c44fc8-214a-41f4-84da-ba3d0569bf8a",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "Origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"queryMap\":{\"onlyAssigned\":{\"searchValue\":true,\"searchOperator\":\"EQUALS\"},\"generalStatus\":{\"searchValue\":\"OPEN\",\"searchOperator\":\"EQUALS\"}},\"isAscending\":false,\"groupBy\":[\"status\"],\"aggregationType\":\"COUNT\"}"
+        },
+        "url": {
+          "raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/stats?cacheBuster=1570103466043",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "gateway",
+            "incidentmanagementservicenew",
+            "api",
+            "incident",
+            "stats"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570103466043"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "incident filter (Incident)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "0549ec19-57ed-40ad-b588-89af09123be3",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "Referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "Origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "Authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json;charset=UTF-8"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"pageNumber\":1,\"sortBy\":[\"creationTime\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{\"onlyAssigned\":{\"searchValue\":true,\"searchOperator\":\"EQUALS\"},\"generalStatus\":{\"searchValue\":\"OPEN\",\"searchOperator\":\"EQUALS\"}}}"
+        },
+        "url": {
+          "raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/filter?cacheBuster=1570103466043",
+          "host": [
+            "{{host}}"
+          ],
+          "path": [
+            "gateway",
+            "incidentmanagementservicenew",
+            "api",
+            "incident",
+            "filter"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570103466043"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ticket management (Ticket)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a2a8a2cc-a8e0-4fd7-b48a-fd510bd8c451",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Ticket data is not null : Success\", function(){",
+              "        pm.expect(data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"pageNumber\":1,\"sortBy\":[\"createdAt\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{}}"
+        },
+        "url": {
+          "raw": "{{sensor_stage}}/api/ticket-management?cacheBuster=1570175262572",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "ticket-management"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175262572"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ticket page search (Ticket)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "bc157b0a-e489-42cc-a9aa-0f6624e0d076",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "    pm.test(\"Ticket page search : Success\", function(){",
+              "        pm.expect(data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"pageNumber\":2,\"sortBy\":[\"createdAt\"],\"isAscending\":false,\"itemPerPage\":\"10\",\"queryMap\":{\"customer.mssp.msspId\":{\"searchValue\":\"cwatchankara_cone\",\"searchOperator\":\"EQUALS\"}}}"
+        },
+        "url": {
+          "raw": "{{sensor_stage}}/api/ticket-management?cacheBuster=1570175649551",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "ticket-management"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175649551"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "event field (Correlation Rules)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "1a58467e-f301-442b-8467-a884275b5760",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Event field is not null : Success\", function(){",
+              "        pm.expect(data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/eventfields?cacheBuster=1570175862549",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "eventfields"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175862549"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generic list (Correlation Rules)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a2ddca7f-ca8e-4814-b705-f22486adff41",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Generic List is not null : Success\", function(){",
+              "        pm.expect(data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/generic-list?size=1000&cacheBuster=1570175862549",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "generic-list"
+          ],
+          "query": [
+            {
+              "key": "size",
+              "value": "1000"
+            },
+            {
+              "key": "cacheBuster",
+              "value": "1570175862549"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "threat classification (Correlation Rules)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "3e026ae2-b69b-404e-bada-5c1693e65c90",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/threat-classification/all?cacheBuster=1570175862549",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "threat-classification",
+            "all"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175862549"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "global correlation rule (Correlation Rule)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2a42a7e3-55f1-49bd-80c2-c5fced16b1e0",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/global-correlation-rule-trees?cacheBuster=1570175862613",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "global-correlation-rule-trees"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175862613"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cpm field (Correlation Rule)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "4fe6cc87-506a-4248-ae80-64d8d4a77b8f",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"CPM Field is message : Success\", function(){",
+              "        pm.expect(data.message).to.equal(\"success\");",
+              "    });",
+              "    ",
+              "    pm.test(\"Cpm field is not null : Success\", function(){",
+              "        pm.expect(data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/cpm-fields?cacheBuster=1570175863884",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "cpm-fields"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570175863884"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generic list (Generic List)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d7e1bf7e-dd79-4a97-8ea1-46ca551a1a57",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "    pm.test(\"Data message : Success\", function(){",
+              "        pm.expect(data.message).to.equal(\"success\");",
+              "    });",
+              "    ",
+              "    pm.test(\"Generic list data is not null : Success\", function(){",
+              "        pm.expect(data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/generic-list?cacheBuster=1570188807772&page=0&size=10&sort=id,asc",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "generic-list"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570188807772"
+            },
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sort",
+              "value": "id,asc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generic list content (Generic List)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f3a53d24-0e17-4050-8571-876fd1997637",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "    pm.test(\"Data message : Success\", function(){",
+              "        pm.expect(data.message).to.equal(\"success\");",
+              "    });",
+              "    ",
+              "    pm.test(\"Generic list content is search : Success\", function(){",
+              "        pm.expect(data.data.data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"pageNumber\":1,\"itemPerPage\":50,\"isAscending\":true,\"queryMap\":{},\"sortBy\":[\"id\"]}"
+        },
+        "url": {
+          "raw": "{{sensor_stage}}/api/generic-list/content/search?cacheBuster=1570189101843",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "generic-list",
+            "content",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570189101843"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "managed reports (Reporting)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c28d13d5-9446-4ff3-b321-95bc87aa5bca",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "    pm.test(\"Data message : Success\", function(){",
+              "        pm.expect(data.message).to.equal(\"success\");",
+              "    });",
+              "    ",
+              "    pm.test(\"Reporting list data is not null : Success\", function(){",
+              "        pm.expect(data.data.links).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "origin",
+            "value": "https://sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json;charset=UTF-8"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"sortBy\":[\"reportedAt\"],\"isAscending\":false,\"queryMap\":{\"customer.mssp.msspId\":{\"searchValue\":\"cwatchankara_cone\",\"searchOperator\":\"EQUALS\"}}}"
+        },
+        "url": {
+          "raw": "{{sensor_stage}}/api/managed-reports?cacheBuster=1570189414910",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "managed-reports"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570189414910"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "reports (Report Generation)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "bfae9fc6-19fa-4591-ae86-74609bbbd8bd",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "    pm.test(\"Report Generation data : Success\", function(){",
+              "        pm.expect(data.children).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/report-template-trees?cacheBuster=1570189527315",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "report-template-trees"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570189527315"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "event query list (Event Query)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fe564590-e9f1-4772-af17-78d5eb85704c",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "",
+              "        pm.test(\"Event Query is not null : Success\", function(){",
+              "        pm.expect(data.children).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/event-query-trees/CUST4a7b9f0d3433407c9e0ae9e8d04444aa?cacheBuster=1570190201181",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "event-query-trees",
+            "CUST4a7b9f0d3433407c9e0ae9e8d04444aa"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570190201181"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sensor list (Sensors)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "09552de2-3274-41be-b891-790f87c0816d",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Sensor list : Success\", function(){",
+              "        pm.expect(data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/sensors?cacheBuster=1570190465483&page=0&size=10&sort=id,asc",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "sensors"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570190465483"
+            },
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sort",
+              "value": "id,asc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "user management list (User Management)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c50bf997-63ec-4b95-87b6-c4f4f1aeff4c",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "https://sensor.stage.cwatchapi.com/api/users?cacheBuster=1570190614214&keyword=&page=0&size=10&sort=id,asc",
+          "protocol": "https",
+          "host": [
+            "sensor",
+            "stage",
+            "cwatchapi",
+            "com"
+          ],
+          "path": [
+            "api",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570190614214"
+            },
+            {
+              "key": "keyword",
+              "value": ""
+            },
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sort",
+              "value": "id,asc"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "roles (Role Management)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d04d2260-5937-43da-bc62-aadd3f3dea3f",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Role Managemnet list : Success\", function(){",
+              "        pm.expect(data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}api/role-management/roles?cacheBuster=1570190701978",
+          "host": [
+            "{{sensor_stage}}api"
+          ],
+          "path": [
+            "role-management",
+            "roles"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570190701978"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "role permissions (Role Management)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fb9153cb-7bf5-436e-a95e-d7e444c26590",
+            "exec": [
+              "var data = JSON.parse(responseBody);",
+              "    ",
+              "    pm.test(\"Role Permission list : Success\", function(){",
+              "        pm.expect(data).to.not.equal(\"null\");",
+              "    });",
+              "    ",
+              "    setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/api/role-management/role-permissions/1?cacheBuster=1570190702237",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "api",
+            "role-management",
+            "role-permissions",
+            "1"
+          ],
+          "query": [
+            {
+              "key": "cacheBuster",
+              "value": "1570190702237"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "configuration (Configurations)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "b2524893-e4e3-4e05-b9ef-8d6c4a98da79",
+            "exec": [
+              "setTimeout(function(){}, [300]);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/management/configprops",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "management",
+            "configprops"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "audits (Audits)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "{{refresh_token}}"
+          },
+          {
+            "key": "accept-encoding",
+            "value": "gzip, deflate, br"
+          },
+          {
+            "key": "accept-language",
+            "value": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "referer",
+            "value": "https://sensor.stage.cwatchapi.com/"
+          },
+          {
+            "key": "authority",
+            "value": "sensor.stage.cwatchapi.com"
+          },
+          {
+            "key": "cookie",
+            "value": "_ga=GA1.2.316741792.1560433423; _gid=GA1.2.217005373.1569927161; NG_TRANSLATE_LANG_KEY=%22en%22; _gat_gtag_UA_148205038_1=1"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          }
+        ],
+        "url": {
+          "raw": "{{sensor_stage}}/management/audits?fromDate=2019-09-04&page=0&size=20&toDate=2019-10-05",
+          "host": [
+            "{{sensor_stage}}"
+          ],
+          "path": [
+            "management",
+            "audits"
+          ],
+          "query": [
+            {
+              "key": "fromDate",
+              "value": "2019-09-04"
+            },
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "20"
+            },
+            {
+              "key": "toDate",
+              "value": "2019-10-05"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "5a53834d-cb39-4e6d-af2b-0898546f3898",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "485e6fb3-b599-4adf-a08e-dc3c3c06f237",
+        "type": "text/javascript",
+        "exec": [
+          "pm.test(\"Status code is 200\", function () {",
+          "    pm.response.to.have.status(200);",
+          "});",
+          "pm.test(\"Response time is less than 4000ms\", function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(4000);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "protocolProfileBehavior": {}
 }
