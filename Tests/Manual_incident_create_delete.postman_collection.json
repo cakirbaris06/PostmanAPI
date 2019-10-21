@@ -291,58 +291,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "incident detail delete (Incident)",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json, text/plain, */*"
-					},
-					{
-						"key": "Referer",
-						"value": "https://sensor.stage.cwatchapi.com/"
-					},
-					{
-						"key": "Origin",
-						"value": "https://sensor.stage.cwatchapi.com"
-					},
-					{
-						"key": "User-Agent",
-						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"
-					},
-					{
-						"key": "Authorization",
-						"value": "{{refresh_token}}"
-					},
-					{
-						"key": "Sec-Fetch-Mode",
-						"value": "cors"
-					}
-				],
-				"url": {
-					"raw": "{{host}}/gateway/incidentmanagementservicenew/api/incident/{{incident_id}}?cacheBuster=1570104604284",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"gateway",
-						"incidentmanagementservicenew",
-						"api",
-						"incident",
-						"{{incident_id}}"
-					],
-					"query": [
-						{
-							"key": "cacheBuster",
-							"value": "1570104604284"
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
