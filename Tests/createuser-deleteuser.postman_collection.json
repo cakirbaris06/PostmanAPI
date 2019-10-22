@@ -414,10 +414,6 @@
 				"id": "65bc400d-2195-4d7e-894f-dcee6ddd4fef",
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Status code is 201\", function () {",
-					"    pm.response.to.have.status(201);",
-					"});",
-					"",
 					"pm.test(\"Response time is less than 4000ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(4000);",
 					"});"
